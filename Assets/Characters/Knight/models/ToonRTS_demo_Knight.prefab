@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3397881364761689150}
   - component: {fileID: -26946231570294862}
   - component: {fileID: -2526902531247252236}
-  - component: {fileID: -8264528679310241911}
+  - component: {fileID: -1084842499080935835}
   m_Layer: 0
   m_Name: ToonRTS_demo_Knight
   m_TagString: Untagged
@@ -150,7 +150,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d0f3ccc9f705a2747940e8fd182e7872, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -183,9 +183,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6510658, y: 1.645679, z: 1.3674922}
-  m_Center: {x: -0.061634064, y: 0.78769994, z: 0.14295685}
---- !u!114 &-8264528679310241911
+  m_Size: {x: 1.6510658, y: 1.6153116, z: 1.3674922}
+  m_Center: {x: -0.061634064, y: 0.8028836, z: 0.14295685}
+--- !u!114 &-1084842499080935835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

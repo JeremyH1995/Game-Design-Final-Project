@@ -184,7 +184,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Walking
-  m_Speed: 4
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3556525033954287808}
@@ -213,12 +213,6 @@ AnimatorController:
   m_Name: KnightController
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: isIdle
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 1
-    m_Controller: {fileID: 0}
   - m_Name: isAttacking
     m_Type: 4
     m_DefaultFloat: 0
@@ -343,7 +337,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Attacking
-  m_Speed: 1
+  m_Speed: 0.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7702372825437777465}

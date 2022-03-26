@@ -29,6 +29,8 @@ public class HQ : MonoBehaviour
         //Create Listeners
         btnKnight.onClick.AddListener(spawnKnight);
         btnZombie.onClick.AddListener(spawnZombie);
+        //assign controllers
+        
     }
 
     // Update is called once per frame

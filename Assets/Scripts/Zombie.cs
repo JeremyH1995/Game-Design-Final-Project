@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        animator.runtimeAnimatorController = (RuntimeAnimatorController)RuntimeAnimatorController.Instantiate(Resources.Load("../Animations/Zombie"));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(animator.GetBool("isIdle") == true){
-            animator.SetBool("isIdle", false);
+        if(animator.GetBool("isWalking") == false && animator.GetBool("isDead") == false && animator.GetBool("isAttacking") == false){
             animator.SetBool("isWalking", true);
         }
     }
