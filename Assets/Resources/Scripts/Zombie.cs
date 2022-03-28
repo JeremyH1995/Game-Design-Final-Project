@@ -8,8 +8,8 @@ public class Zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-        animator.runtimeAnimatorController = (RuntimeAnimatorController)RuntimeAnimatorController.Instantiate(Resources.Load("../Animations/Zombie"));
+        animator = this.GetComponent<Animator>();
+        animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Characters/Zombie/Animations/Zombie");
     }
 
     // Update is called once per frame

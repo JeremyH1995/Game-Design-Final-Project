@@ -9,8 +9,7 @@ public class Knight : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        animator.runtimeAnimatorController = (RuntimeAnimatorController)RuntimeAnimatorController.Instantiate(Resources.Load("Assets/Characters/Knight/animations/KnightController"));
-        Debug.Log(animator.runtimeAnimatorController.name);
+        animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("../Characters/Knight/animations/KnightController");
     }
 
     // Update is called once per frame
