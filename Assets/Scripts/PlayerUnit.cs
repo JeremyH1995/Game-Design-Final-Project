@@ -24,4 +24,8 @@ public class PlayerUnit : MonoBehaviour
             animator.SetBool("isWalking", true);
         }
     }
+
+    void onCollisionEnter(Collision coll){
+       
+    }
 }

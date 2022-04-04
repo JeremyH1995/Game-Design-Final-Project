@@ -22,6 +22,7 @@ public class Knight : PlayerUnit
     }
 
     void onCollisionEnter(Collision coll){
+        Debug.Log("Collision Detected");
         animator.SetBool("isAttacking", true);
     }
 
