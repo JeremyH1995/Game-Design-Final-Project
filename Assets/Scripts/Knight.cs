@@ -21,7 +21,7 @@ public class Knight : PlayerUnit
         this.stateChange(animator, speed);
     }
 
-    void onCollisionEnter(Collision coll){
+    void onTriggerEnter(Collider coll){
         Debug.Log("Collision Detected");
         animator.SetBool("isAttacking", true);
     }
