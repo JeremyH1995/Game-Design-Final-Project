@@ -17,12 +17,27 @@ public class PlayerUnit : MonoBehaviour
     }
 
     protected void stateChange(Animator animator, float speed){
-        if(animator.GetBool("isWalking") == true){
-            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-        }
-        else if(animator.GetBool("isWalking") == false && animator.GetBool("isDead") == false && animator.GetBool("isAttacking") == false){
+        if(animator.GetBool("isIdle") == true){
             animator.SetBool("isWalking", true);
+            animator.SetBool("isIdle", false);
         }
+       // else if(){
+            //check when to attack
+        //}
+        else if(animator.GetBool("isWalking") == true){
+            Walk(speed);
+        }
+        
+    }
+
+    void Attack(Animator animator){
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isIdle", false);
+        animator.SetTrigger("Attack");
+    }
+
+    void Walk(float speed){
+        transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
     }
 
     void onCollisionEnter(Collision coll){
