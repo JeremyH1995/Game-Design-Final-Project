@@ -13,7 +13,15 @@ public class HQ : MonoBehaviour
     public Quaternion rotation = Quaternion.Euler(0, 90, 0);
 
     //Unit Objects
+    public GoldMine goldMine;
     public GameObject knightPrefab;
+    public GameObject archerPrefab;
+    public GameObject WizardPrefab;
+
+    //Unit Prices
+    int knightPrice = 40;
+    int archerPrice = 50;
+    int wizardPrice = 100;
     //HQ Properties
     public int health = 1000;
 
@@ -27,14 +35,27 @@ public class HQ : MonoBehaviour
         btnKnight.onClick.AddListener(spawnKnight);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void spawnKnight()
     {
-        GameObject knight = Instantiate<GameObject>(knightPrefab, spawnPos, rotation);
+        if(goldMine.getGold() > knightPrice){
+            goldMine.buyUnit(knightPrice);
+            GameObject knight = Instantiate<GameObject>(knightPrefab, spawnPos, rotation);
+        }
+    }
+
+    void spawnArcher()
+    {
+        if(goldMine.getGold() > archerPrice){
+            goldMine.buyUnit(archerPrice);
+            GameObject knight = Instantiate<GameObject>(archerPrefab, spawnPos, rotation);
+        }
+    }
+
+    void spawnWizard()
+    {
+        if(goldMine.getGold() > wizardPrice){
+            goldMine.buyUnit(wizardPrice);
+            GameObject knight = Instantiate<GameObject>(WizardPrefab, spawnPos, rotation);
+        }
     }
 }
