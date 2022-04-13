@@ -7,6 +7,8 @@ public class HQ : MonoBehaviour
 {
     //Buttons
     public Button btnKnight;
+    public Button btnArcher;
+    public Button btnWizard;
     //Spawn Info
     GameObject spawnPoint;
     public Vector3 spawnPos;
@@ -33,6 +35,8 @@ public class HQ : MonoBehaviour
         spawnPos = spawnPoint.transform.position;
         //Create Listeners
         btnKnight.onClick.AddListener(spawnKnight);
+        btnArcher.onClick.AddListener(spawnArcher);
+        btnWizard.onClick.AddListener(spawnWizard);
     }
 
     void spawnKnight()

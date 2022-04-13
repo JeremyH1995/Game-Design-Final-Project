@@ -7,18 +7,30 @@ public class GoldMine : MonoBehaviour
 {
     public Text goldtextBox;
     public Text levelTextBox;
-    public Button btnGoldMine;
-    public Text btnGoldMineText;
+    public Button btnUpgrade;
+    public Text upgradeButtonText;
+    Vector3 goldMinePosition;
+    Vector3 addPosition;
     int level = 1;
     const int MAX_LEVEL = 10;
-    int gold = 0;    
+    public int gold = 0;    
     int upgradeCost = 25;
 
     // Start is called before the first frame update
     void Start()
     {
-        btnGoldMine.onClick.AddListener(upgrade);
+        goldMinePosition = transform.position;
+        addPosition = new Vector3(0f, 1f, 0f);
+        btnUpgrade.gameObject.SetActive(false);
+        btnUpgrade.onClick.AddListener(upgrade);
         InvokeRepeating("earnGold", 0, 1);
+    }
+
+    void onMouseOver(){
+        if(!btnUpgrade.isActiveAndEnabled){
+            btnUpgrade.transform.position = goldMinePosition + addPosition;
+            btnUpgrade.gameObject.SetActive(true);
+        }
     }
 
     void earnGold(){
@@ -40,7 +52,7 @@ public class GoldMine : MonoBehaviour
             level++;
             upgradeCost *= 2;
             levelTextBox.text = "Level " + level.ToString();
-            btnGoldMineText.text = "Upgrade Cost: " + upgradeCost.ToString();
+            upgradeButtonText.text = "Upgrade Cost: " + upgradeCost.ToString();
         }
     }
 }

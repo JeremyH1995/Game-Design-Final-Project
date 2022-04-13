@@ -5,11 +5,9 @@ using UnityEngine.UI;
 
 public class EnemyGoldMine : MonoBehaviour
 {
-    public Text enemyGold;
-    public Text enemyLevel;
     int level = 1;
     const int MAX_LEVEL = 10;
-    int gold = 0;    
+    public int gold = 0;    
     int upgradeCost = 25;
 
     // Start is called before the first frame update
@@ -20,7 +18,6 @@ public class EnemyGoldMine : MonoBehaviour
 
     void earnGold(){
         gold += level;
-        enemyGold.text = gold.ToString();
     }
 
     public int getGold(){
@@ -41,7 +38,6 @@ public class EnemyGoldMine : MonoBehaviour
             gold -= upgradeCost;
             level++;
             upgradeCost *= 2;
-            enemyLevel.text = level.ToString();
         }
     }
 }
