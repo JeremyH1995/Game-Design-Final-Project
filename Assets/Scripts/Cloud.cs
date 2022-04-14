@@ -54,18 +54,4 @@ public class Cloud : MonoBehaviour
             spTrans.localScale = scale;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space)) Restart();   
-    }
-
-    void Restart()
-    {
-        //clear old clouds
-        foreach(GameObject sp in spheres) Destroy(sp);
-
-        Start();
-    }
 }
