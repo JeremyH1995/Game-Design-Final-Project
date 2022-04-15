@@ -14,11 +14,18 @@ public class Unit : MonoBehaviour
     public int maxHealth;
     public float speed;
     public int damage;
+    float attackDelay;
+    float idleDelay;
+    public float damageTime;
+    public bool isDead;
     public HealthBar healthBar;
 
     void Start(){
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        attackDelay = 0;
+        idleDelay = 0;
+        isDead = false;
     }
    void Update()
     {
@@ -26,12 +33,25 @@ public class Unit : MonoBehaviour
     }
 
     public void stateChange(){
-        if(animator.GetBool("isWalking") == true){
+        if(isDead == true){
+            //do nothing until deletion
+        }
+        else if(collidedWithEnemy == true){
+            attackDelay -= Time.deltaTime;
+            if(attackDelay <= 0){
+                Attack();
+                attackDelay = 3f;
+            }
+        }
+        else if(animator.GetBool("isWalking") == true){
             Walk(speed);
         }
-        if(animator.GetBool("isIdle") == true){
-            animator.SetBool("isIdle", false);
-            animator.SetBool("isWalking", true);
+        else if(animator.GetBool("isIdle") == true){
+            idleDelay -= Time.deltaTime;
+            if(idleDelay <= 0){
+                animator.SetBool("isIdle", false);
+                animator.SetBool("isWalking", true);
+            }
         }
     }
 
@@ -43,7 +63,7 @@ public class Unit : MonoBehaviour
         animator.SetBool("isWalking", false);
         animator.SetBool("isIdle", false);
 
-        //play the attack animation
+        //play attack animation
         animator.SetTrigger("Attack");
 
         //detect enemies in range of attack
@@ -51,10 +71,16 @@ public class Unit : MonoBehaviour
 
         //set damage to enemies
         foreach(Collider enemy in hitEnemies){
-            enemy.GetComponent<EnemyUnit>().TakeDamage(damage);
+            Unit enemyUnit = enemy.GetComponent<Unit>();
+            enemyUnit.TakeDamage(damage);
             Debug.Log(enemy.name + " was hit!");
-        }
-       
+            if(enemyUnit.isDead == true){
+                Debug.Log(enemyUnit.name + " is dead!");
+                collidedWithEnemy = false;
+                idleDelay = 2;
+                animator.SetBool("isIdle", true);
+            }
+        }  
     }
 
     public void TakeDamage(int damage){
@@ -62,18 +88,23 @@ public class Unit : MonoBehaviour
         healthBar.SetHealth(currentHealth);
 
         if(currentHealth <= 0){
-            animator.SetTrigger("Death");
-            Destroy(gameObject, 10);
+            Death();
         }
     }
 
     void Death(){
-         //set bool values to false
+        //set bool values to false
         animator.SetBool("isWalking", false);
         animator.SetBool("isIdle", false);
 
-         //play death animation
+        isDead = true;
+        GetComponent<BoxCollider>().enabled = false;
+
+        //play death animation
         animator.SetTrigger("Death");
+
+        //delete game object
+        Destroy(gameObject, 5);
     }
 
     void OnDrawGizmosSelected(){

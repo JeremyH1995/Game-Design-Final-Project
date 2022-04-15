@@ -32,7 +32,7 @@ public class EnemyHQ : MonoBehaviour
         spawnPos = spawnPoint.transform.position;
         
         //call RollForUnit reapeatedly
-        //InvokeRepeating("Decide", 10, 10);
+        InvokeRepeating("Decide", 0, 10);
     }
 
     // Update is called once per frame

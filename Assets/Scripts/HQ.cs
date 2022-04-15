@@ -35,8 +35,8 @@ public class HQ : MonoBehaviour
         spawnPos = spawnPoint.transform.position;
         //Create Listeners
         btnKnight.onClick.AddListener(spawnKnight);
-        btnArcher.onClick.AddListener(spawnArcher);
-        btnWizard.onClick.AddListener(spawnWizard);
+        //btnArcher.onClick.AddListener(spawnArcher);
+        //btnWizard.onClick.AddListener(spawnWizard);
     }
 
     void spawnKnight()

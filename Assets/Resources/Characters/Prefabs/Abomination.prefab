@@ -926,6 +926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2318819219258023383}
   - component: {fileID: 9177368570965988997}
+  - component: {fileID: 2179147533170396528}
   m_Layer: 6
   m_Name: Abomination
   m_TagString: EnemyUnit
@@ -942,11 +943,12 @@ Transform:
   m_GameObject: {fileID: 3127126963929040749}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2330322975948102366}
   - {fileID: 2926387584485499533}
   - {fileID: 5692097508638923318}
+  - {fileID: 513637706472265225}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -960,7 +962,7 @@ Animator:
   m_GameObject: {fileID: 3127126963929040749}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 605c8436d04a99b4a959450af15205d4, type: 2}
+  m_Controller: {fileID: 9100000, guid: b7382cb9b975bbc48ba684475d281f5b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -969,6 +971,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2179147533170396528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127126963929040749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419031a66b17d024baa3c9f804dac4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 9177368570965988997}
+  attackPoint: {fileID: 513637706472265225}
+  attackRange: 1
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  currentHealth: 0
+  maxHealth: 500
+  speed: 1
+  damage: 30
+  damageTime: 0
+  isDead: 0
+  healthBar: {fileID: 6330946740842193198}
 --- !u!1 &3226766579676928863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2191,36 @@ Transform:
   - {fileID: 7033277806166593794}
   m_Father: {fileID: 898129701690845652}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7609649544992512242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513637706472265225}
+  m_Layer: 6
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513637706472265225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609649544992512242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.252, z: 1.356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2318819219258023383}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7823062389810527446
 GameObject:

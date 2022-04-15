@@ -646,6 +646,7 @@ Transform:
   - {fileID: 7310342883647177900}
   - {fileID: 2903275338277833082}
   - {fileID: 2134239734254840338}
+  - {fileID: 4246320381158892550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -682,14 +683,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5908461903629284879}
   attackPoint: {fileID: 4246320381158892550}
-  attackRange: 0.5
+  attackRange: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
   currentHealth: 0
   maxHealth: 100
   speed: 3
-  damage: 0
+  damage: 15
+  damageTime: 0
+  isDead: 0
   healthBar: {fileID: 6483344221996410960}
 --- !u!65 &4139718837321939714
 BoxCollider:
@@ -995,11 +998,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3481669827035948937}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.953, y: 1.556, z: -0.167}
+  m_LocalPosition: {x: -0.007, y: 1.14, z: 1.366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7310342883647177900}
-  m_RootOrder: 0
+  m_Father: {fileID: 2896483220375441011}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3523066516643423228
 GameObject:
@@ -1432,8 +1435,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4246320381158892550}
+  m_Children: []
   m_Father: {fileID: 2896483220375441011}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

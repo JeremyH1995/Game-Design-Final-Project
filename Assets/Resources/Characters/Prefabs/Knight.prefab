@@ -356,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508435328665156589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.893, y: 1.3852, z: 0.4751}
+  m_LocalPosition: {x: -0.003, y: 0.788, z: 1.123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5053515616643997870}
@@ -1615,7 +1615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4168769651903859189}
   attackPoint: {fileID: 6412184512990423876}
-  attackRange: 0.5
+  attackRange: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -1623,6 +1623,7 @@ MonoBehaviour:
   maxHealth: 250
   speed: 2
   damage: 20
+  damageTime: 1.2
   healthBar: {fileID: 3453323401452062032}
 --- !u!65 &6215580030553750255
 BoxCollider:

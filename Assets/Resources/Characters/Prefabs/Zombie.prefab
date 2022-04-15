@@ -1062,6 +1062,36 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.33271015, y: 0.074496835, z: 0.014275014}
     m_Extent: {x: 0.19994229, y: 0.16534758, z: 0.08456545}
   m_DirtyAABB: 0
+--- !u!1 &2665712869927837108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048750042680933463}
+  m_Layer: 6
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1048750042680933463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2665712869927837108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.962, z: 0.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1951138391423079915}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2770631136843230633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1342,7 @@ Transform:
   m_GameObject: {fileID: 3263016119714228216}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -11.08, y: -7.93, z: -2.42}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4170760230878358864}
   - {fileID: 1496135535491471528}
@@ -1330,6 +1360,7 @@ Transform:
   - {fileID: 8930555593778300044}
   - {fileID: 3197113371346606116}
   - {fileID: 7205674235772398230}
+  - {fileID: 1048750042680933463}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -1346,16 +1377,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7380924718860077293}
-  attackPoint: {fileID: 0}
-  attackRange: 0
+  attackPoint: {fileID: 1048750042680933463}
+  attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
   currentHealth: 0
   maxHealth: 100
   speed: 0.5
-  damage: 0
-  healthBar: {fileID: 0}
+  damage: 10
+  damageTime: 0
+  isDead: 0
+  healthBar: {fileID: 4731311476443120346}
 --- !u!95 &7380924718860077293
 Animator:
   serializedVersion: 3
@@ -1366,7 +1399,7 @@ Animator:
   m_GameObject: {fileID: 3263016119714228216}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2ef8e6599b7f9934e8ff0d64c5325a1f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7a94c1f992754cf4c8a115c21e1323bb, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

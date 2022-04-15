@@ -12,7 +12,6 @@ public class EnemyUnit : Unit
         if(coll.CompareTag("PlayerUnit")){
             Debug.Log(this.name + " collided with " + coll.name);
             collidedWithEnemy = true;
-            Attack();
         }
     }
 }
