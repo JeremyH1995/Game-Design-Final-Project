@@ -9,10 +9,11 @@ public class Unit : MonoBehaviour
     public Transform attackPoint;
     public float attackRange;
     public LayerMask enemyLayers;
-    public bool collidedWithEnemy;
+    protected bool collidedWithEnemy;
     public int currentHealth;
     public int maxHealth;
     public float speed;
+    public int damage;
     public HealthBar healthBar;
 
     void Start(){
@@ -25,24 +26,12 @@ public class Unit : MonoBehaviour
     }
 
     public void stateChange(){
-        if(currentHealth <= 0){
-            animator.SetTrigger("Death");
-            Destroy(gameObject, 10);
-            CancelInvoke("stateChange");
-        }
-        else if(collidedWithEnemy){
-            //set bool values
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isIdle", false);
-
-            CancelInvoke("stateChange");
-        }
-        else if(animator.GetBool("isWalking") == true){
+        if(animator.GetBool("isWalking") == true){
             Walk(speed);
         }
-        else{
-            animator.SetBool("isWalking", true);
+        if(animator.GetBool("isIdle") == true){
             animator.SetBool("isIdle", false);
+            animator.SetBool("isWalking", true);
         }
     }
 
@@ -51,6 +40,9 @@ public class Unit : MonoBehaviour
     }
 
     public void Attack(){
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isIdle", false);
+
         //play the attack animation
         animator.SetTrigger("Attack");
 
@@ -59,13 +51,20 @@ public class Unit : MonoBehaviour
 
         //set damage to enemies
         foreach(Collider enemy in hitEnemies){
-            Debug.Log("We hit " + enemy.name);
+            enemy.GetComponent<EnemyUnit>().TakeDamage(damage);
+            Debug.Log(enemy.name + " was hit!");
         }
+       
     }
 
     public void TakeDamage(int damage){
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+
+        if(currentHealth <= 0){
+            animator.SetTrigger("Death");
+            Destroy(gameObject, 10);
+        }
     }
 
     void Death(){

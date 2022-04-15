@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6030071336533985675, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6030071336533985675, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 593839974426810053, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
       propertyPath: m_SizeDelta.x
       value: 300
@@ -138,6 +146,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3888820304851532815, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888820304851532815, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 129399909}
     - target: {fileID: 4799762551697080602, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -168,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5053515616643997870, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: -7.97
       objectReference: {fileID: 0}
     - target: {fileID: 5053515616643997870, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -205,6 +221,10 @@ PrefabInstance:
     - target: {fileID: 5578377746016647700, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
       propertyPath: m_Name
       value: Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215580030553750255, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8793912727621905145, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
       propertyPath: m_SizeDelta.y
@@ -507,6 +527,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117413316}
   m_CullTransparentMesh: 1
+--- !u!4 &129399909 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6412184512990423876, guid: a61133a3e823bd3459d3ee29cfed05b6, type: 3}
+  m_PrefabInstance: {fileID: 2159926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &162690894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,9 +1783,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 69072597473429011, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2556268361988953289, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
       propertyPath: m_Name
       value: goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557338340391290415, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557338340391290415, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2896483220375441011, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
       propertyPath: m_RootOrder
@@ -1768,11 +1805,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2896483220375441011, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.470821
+      value: -11.82
       objectReference: {fileID: 0}
     - target: {fileID: 2896483220375441011, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: -7.98
       objectReference: {fileID: 0}
     - target: {fileID: 2896483220375441011, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1821,6 +1858,10 @@ PrefabInstance:
     - target: {fileID: 2953102280265217394, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139718837321939714, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4958694705977679282, guid: cbc9cf9160a70e94da0ff073d9413894, type: 3}
       propertyPath: m_AnchorMax.x
