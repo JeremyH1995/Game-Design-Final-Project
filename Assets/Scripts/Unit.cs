@@ -6,14 +6,13 @@ public class Unit : MonoBehaviour
 {
 
     public Animator animator;
-    private Transform attackPoint;
+    public Transform attackPoint;
     public float attackRange;
     public LayerMask enemyLayers;
+    public bool collidedWithEnemy;
     public int currentHealth;
     public int maxHealth;
     public float speed;
-    public bool isPlayerUnit;
-    public bool isEnemyUnit;
     public HealthBar healthBar;
 
     void Start(){
@@ -25,28 +24,34 @@ public class Unit : MonoBehaviour
         stateChange();
     }
 
-    void stateChange(){
+    public void stateChange(){
         if(currentHealth <= 0){
             animator.SetTrigger("Death");
             Destroy(gameObject, 10);
             CancelInvoke("stateChange");
         }
-        else if(animator.GetBool("isIdle") == true){
-            animator.SetBool("isWalking", true);
+        else if(collidedWithEnemy){
+            //set bool values
+            animator.SetBool("isWalking", false);
             animator.SetBool("isIdle", false);
+
+            CancelInvoke("stateChange");
         }
         else if(animator.GetBool("isWalking") == true){
             Walk(speed);
         }
-        
+        else{
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isIdle", false);
+        }
     }
 
-    void Attack(){
-        //set bool values to false
-        animator.SetBool("isWalking", false);
-        animator.SetBool("isIdle", false);
+    public virtual void Walk(float speed){
+        transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+    }
 
-        //play attack animation
+    public void Attack(){
+        //play the attack animation
         animator.SetTrigger("Attack");
 
         //detect enemies in range of attack
@@ -56,10 +61,6 @@ public class Unit : MonoBehaviour
         foreach(Collider enemy in hitEnemies){
             Debug.Log("We hit " + enemy.name);
         }
-    }
-
-    void Walk(float speed){
-        transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
     }
 
     public void TakeDamage(int damage){
@@ -81,5 +82,9 @@ public class Unit : MonoBehaviour
             return;
         
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    IEnumerator wait(int seconds){
+        yield return new WaitForSeconds(seconds);
     }
 }
