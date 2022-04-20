@@ -17,8 +17,8 @@ public class EnemyHQ : MonoBehaviour
     public EnemyGoldMine goldMine;
 
     //Unit Prices
-    int zombiePrice = 20;
-    int goblinPrice = 30;
+    int zombiePrice = 15;
+    int goblinPrice = 20;
     int abominationPrice = 50;
 
     //HQ Properties
@@ -68,7 +68,9 @@ public class EnemyHQ : MonoBehaviour
         2 - Abomination
         3 - upgrade Goldmine
         */
-        return Random.Range(0, 3);
+        int rand = Random.Range(0, 3);
+        Debug.Log("Enemy HQ Roll Value:\t" + rand);
+        return rand;
     }
 
     void death(){

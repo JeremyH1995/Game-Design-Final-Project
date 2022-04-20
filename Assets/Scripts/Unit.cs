@@ -39,9 +39,12 @@ public class Unit : MonoBehaviour
         else if(collidedWithEnemy == true){
             attackDelay -= Time.deltaTime;
             if(attackDelay <= 0){
-                Attack();
-                attackDelay = 3f;
+                if(CheckAttack()){
+                    Attack();
+                }
             }
+            
+            
         }
         else if(animator.GetBool("isWalking") == true){
             Walk(speed);
@@ -59,7 +62,14 @@ public class Unit : MonoBehaviour
         transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
     }
 
+    bool CheckAttack(){
+        Collider[] EnemiesInRange = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+        return (EnemiesInRange.Length != 0);
+    }
+
     public void Attack(){
+        attackDelay = 3f;
+
         animator.SetBool("isWalking", false);
         animator.SetBool("isIdle", false);
 
@@ -69,18 +79,21 @@ public class Unit : MonoBehaviour
         //detect enemies in range of attack
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
-        //set damage to enemies
-        foreach(Collider enemy in hitEnemies){
+        if(hitEnemies.Length != 0){
+            foreach(Collider enemy in hitEnemies){
             Unit enemyUnit = enemy.GetComponent<Unit>();
             enemyUnit.TakeDamage(damage);
             Debug.Log(enemy.name + " was hit!");
-            if(enemyUnit.isDead == true){
-                Debug.Log(enemyUnit.name + " is dead!");
-                collidedWithEnemy = false;
-                idleDelay = 2;
-                animator.SetBool("isIdle", true);
-            }
-        }  
+                if(enemyUnit.isDead == true){
+                    Debug.Log(enemyUnit.name + " is dead!");
+                }
+            }  
+        }
+        else{
+            collidedWithEnemy = false;
+            animator.SetBool("isIdle", true);
+        }
+        
     }
 
     public void TakeDamage(int damage){

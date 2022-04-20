@@ -1569,7 +1569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5578377746016647700}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -7}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 5069170818720475047}
@@ -1624,6 +1624,7 @@ MonoBehaviour:
   speed: 2
   damage: 20
   damageTime: 1.2
+  isDead: 0
   healthBar: {fileID: 3453323401452062032}
 --- !u!65 &6215580030553750255
 BoxCollider:
