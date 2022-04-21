@@ -9,14 +9,14 @@ public class Unit : MonoBehaviour
     public Transform attackPoint;
     public float attackRange;
     public LayerMask enemyLayers;
-    protected bool collidedWithEnemy;
+    public bool collidedWithEnemy;
     public int currentHealth;
     public int maxHealth;
     public float speed;
     public int damage;
+    public string enemyTag;
     float attackDelay;
     float idleDelay;
-    public float damageTime;
     public bool isDead;
     public HealthBar healthBar;
 
@@ -42,9 +42,11 @@ public class Unit : MonoBehaviour
                 if(CheckAttack()){
                     Attack();
                 }
-            }
-            
-            
+                else{
+                    collidedWithEnemy = false;
+                    animator.SetBool("isIdle", true);
+                }
+            }   
         }
         else if(animator.GetBool("isWalking") == true){
             Walk(speed);
@@ -58,8 +60,14 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public virtual void Walk(float speed){
-        transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+    public void Walk(float speed){
+        if(gameObject.tag == "PlayerUnit"){
+            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+        }
+        else if(gameObject.tag == "EnemyUnit"){
+            transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
+        }
+        
     }
 
     bool CheckAttack(){
@@ -95,7 +103,6 @@ public class Unit : MonoBehaviour
         }
         
     }
-
     public void TakeDamage(int damage){
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
@@ -118,6 +125,13 @@ public class Unit : MonoBehaviour
 
         //delete game object
         Destroy(gameObject, 5);
+    }
+
+    void OnTriggerEnter(Collider coll){
+        if(coll.CompareTag(enemyTag)){
+            Debug.Log(this.name + " collided with " + coll.name);
+            collidedWithEnemy = true;
+        }
     }
 
     void OnDrawGizmosSelected(){

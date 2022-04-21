@@ -19,7 +19,7 @@ public class EnemyHQ : MonoBehaviour
     //Unit Prices
     int zombiePrice = 15;
     int goblinPrice = 20;
-    int abominationPrice = 50;
+    int abominationPrice = 100;
 
     //HQ Properties
     public int health = 1000;
@@ -32,7 +32,7 @@ public class EnemyHQ : MonoBehaviour
         spawnPos = spawnPoint.transform.position;
         
         //call RollForUnit reapeatedly
-        InvokeRepeating("Decide", 0, 10);
+        InvokeRepeating("Decide", 10, 10);
     }
 
     // Update is called once per frame
@@ -58,6 +58,9 @@ public class EnemyHQ : MonoBehaviour
             case 3: 
                 goldMine.upgrade();
                 break;
+            case 4:
+                //do nothing
+                break;
         }
     }
     
@@ -68,7 +71,7 @@ public class EnemyHQ : MonoBehaviour
         2 - Abomination
         3 - upgrade Goldmine
         */
-        int rand = Random.Range(0, 3);
+        int rand = Random.Range(0, 4);
         Debug.Log("Enemy HQ Roll Value:\t" + rand);
         return rand;
     }

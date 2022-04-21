@@ -691,6 +691,7 @@ MonoBehaviour:
   maxHealth: 100
   speed: 3
   damage: 15
+  enemyTag: PlayerUnit
   damageTime: 0
   isDead: 0
   healthBar: {fileID: 6483344221996410960}

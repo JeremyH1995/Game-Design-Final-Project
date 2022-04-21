@@ -22,12 +22,6 @@ public class GoldMine : Building
         btnUpgrade.onClick.AddListener(upgrade);
         InvokeRepeating("earnGold", 0, 1);   
     }
-
-    void Update(){
-        if(Input.GetKeyDown("space")){
-            TakeDamage(10);
-        }
-    }
     void earnGold(){
         gold += level;
         goldtextBox.text = gold.ToString();
