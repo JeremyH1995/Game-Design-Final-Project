@@ -1619,12 +1619,12 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  collidedWithEnemy: 0
   currentHealth: 0
   maxHealth: 250
   speed: 2
   damage: 20
   enemyTag: EnemyUnit
-  damageTime: 1.2
   isDead: 0
   healthBar: {fileID: 3453323401452062032}
 --- !u!65 &6215580030553750255
