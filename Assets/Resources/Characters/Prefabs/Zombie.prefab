@@ -1384,11 +1384,12 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  collidedWithEnemy: 0
   currentHealth: 0
   maxHealth: 100
   speed: 1
   damage: 20
-  damageTime: 0
+  enemyTag: PlayerUnit
   isDead: 0
   healthBar: {fileID: 4731311476443120346}
 --- !u!95 &7380924718860077293

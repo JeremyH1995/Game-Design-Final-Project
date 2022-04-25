@@ -10,8 +10,8 @@ public class HQ : MonoBehaviour
     public Button btnArcher;
     public Button btnWizard;
     //Spawn Info
-    GameObject spawnPoint;
-    public Vector3 spawnPos;
+    public GameObject spawnPoint;
+    Vector3 spawnPos;
     public Quaternion rotation = Quaternion.Euler(0, 90, 0);
 
     //Unit Objects
@@ -25,13 +25,12 @@ public class HQ : MonoBehaviour
     int archerPrice = 50;
     int wizardPrice = 100;
     //HQ Properties
-    public int health = 1000;
+    public int lives = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        //get spawnpoint
-        spawnPoint = GameObject.Find("SpawnPoint");
+        //get spawn position
         spawnPos = spawnPoint.transform.position;
         //Create Listeners
         btnKnight.onClick.AddListener(spawnKnight);
