@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyGoldMine : Building
+public class EnemyGoldMine : MonoBehaviour
 {
     int level = 1;
     const int MAX_LEVEL = 10;
@@ -13,8 +13,6 @@ public class EnemyGoldMine : Building
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = 500;
-        currentHealth = maxHealth;
         InvokeRepeating("earnGold", 0, 1);
     }
 

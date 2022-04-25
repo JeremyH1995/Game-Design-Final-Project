@@ -1623,7 +1623,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 250
   speed: 2
-  damage: 20
+  damage: 25
   enemyTag: EnemyUnit
   isDead: 0
   healthBar: {fileID: 3453323401452062032}

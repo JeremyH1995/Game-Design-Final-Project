@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HQ : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class HQ : MonoBehaviour
     int wizardPrice = 100;
     //HQ Properties
     public int lives = 10;
+    public Text livesText;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,20 @@ public class HQ : MonoBehaviour
         //btnArcher.onClick.AddListener(spawnArcher);
         //btnWizard.onClick.AddListener(spawnWizard);
     }
+
+    public void loseLife(){
+        lives--;
+        livesText.text = lives.ToString();
+        if(lives <= 0){
+            death();
+        }
+    }
+
+    void death(){
+        CancelInvoke();
+        SceneManager.LoadScene("YouLost");
+    }
+
 
     void spawnKnight()
     {

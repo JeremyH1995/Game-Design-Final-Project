@@ -103,7 +103,7 @@ public class Unit : MonoBehaviour
         }
         
     }
-    public void TakeDamage(int damage){
+    public virtual void TakeDamage(int damage){
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
@@ -112,7 +112,7 @@ public class Unit : MonoBehaviour
         }
     }
 
-    void Death(){
+    public void Death(){
         //set bool values to false
         animator.SetBool("isWalking", false);
         animator.SetBool("isIdle", false);
@@ -125,13 +125,6 @@ public class Unit : MonoBehaviour
 
         //delete game object
         Destroy(gameObject, 5);
-    }
-
-    void OnTriggerEnter(Collider coll){
-        if(coll.CompareTag(enemyTag)){
-            Debug.Log(this.name + " collided with " + coll.name);
-            collidedWithEnemy = true;
-        }
     }
 
     void OnDrawGizmosSelected(){

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoldMine : Building
+public class GoldMine : MonoBehaviour
 {
     public Text goldtextBox;
     public Text levelTextBox;
@@ -17,8 +17,6 @@ public class GoldMine : Building
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = 500;
-        currentHealth = maxHealth;
         btnUpgrade.onClick.AddListener(upgrade);
         InvokeRepeating("earnGold", 0, 1);   
     }
@@ -32,6 +30,7 @@ public class GoldMine : Building
     }
     public void buyUnit(int amount){
         gold -= amount;
+        goldtextBox.text = gold.ToString();
     }
 
 

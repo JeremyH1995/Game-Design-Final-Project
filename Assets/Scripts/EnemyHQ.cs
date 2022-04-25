@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemyHQ : MonoBehaviour
 {
     //Spawn Info
-    GameObject spawnPoint;
-    public Vector3 spawnPos;
+    public GameObject spawnPoint;
+    Vector3 spawnPos;
     public Quaternion rotation = Quaternion.Euler(0, -90, 0);
 
     //Unit Objects
@@ -17,28 +18,28 @@ public class EnemyHQ : MonoBehaviour
     public EnemyGoldMine goldMine;
 
     //Unit Prices
-    int zombiePrice = 15;
-    int goblinPrice = 20;
-    int abominationPrice = 100;
+    int zombiePrice = 30;
+    int goblinPrice = 25;
+    int abominationPrice = 60;
 
     //HQ Properties
-    public int health = 1000;
+    public int lives = 10;
+    public Text livesText;
 
     // Start is called before the first frame update
     void Start()
     {
-        //get spawnpoint
-        spawnPoint = GameObject.Find("EnemySpawnPoint");
+        //get spawnpoint position
         spawnPos = spawnPoint.transform.position;
         
         //call RollForUnit reapeatedly
-        InvokeRepeating("Decide", 10, 10);
+        InvokeRepeating("Decide", 5, 5);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(health <= 0){
+    public void loseLife(){
+        lives--;
+        livesText.text = lives.ToString();
+        if(lives <= 0){
             death();
         }
     }
@@ -78,7 +79,7 @@ public class EnemyHQ : MonoBehaviour
 
     void death(){
         CancelInvoke();
-
+        SceneManager.LoadScene("YouWon");
     }
 
     void spawnZombie()
