@@ -38,7 +38,7 @@ public class GoldMine : MonoBehaviour
         if(gold >= upgradeCost && level < MAX_LEVEL){
             gold -= upgradeCost;
             level++;
-            upgradeCost *= 2;
+            upgradeCost += 25;
             levelTextBox.text = "Level " + level.ToString();
             upgradeButtonText.text = "Upgrade Cost: " + upgradeCost.ToString();
         }

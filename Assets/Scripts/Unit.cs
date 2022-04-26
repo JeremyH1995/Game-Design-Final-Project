@@ -6,8 +6,8 @@ public class Unit : MonoBehaviour
 {
 
     public Animator animator;
-    public Transform attackPoint;
-    public float attackRange;
+    public Transform meleeAttackPoint;
+    public float meleeRange;
     public LayerMask enemyLayers;
     public bool collidedWithEnemy;
     public int currentHealth;
@@ -15,8 +15,8 @@ public class Unit : MonoBehaviour
     public float speed;
     public int damage;
     public string enemyTag;
-    float attackDelay;
-    float idleDelay;
+    protected float attackDelay;
+    protected float idleDelay;
     public bool isDead;
     public HealthBar healthBar;
 
@@ -26,13 +26,14 @@ public class Unit : MonoBehaviour
         attackDelay = 0;
         idleDelay = 0;
         isDead = false;
+        animator.SetBool("isIdle", true);
     }
    void Update()
     {
         stateChange();
     }
 
-    public void stateChange(){
+    public virtual void stateChange(){
         if(isDead == true){
             //do nothing until deletion
         }
@@ -70,8 +71,8 @@ public class Unit : MonoBehaviour
         
     }
 
-    bool CheckAttack(){
-        Collider[] EnemiesInRange = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+    protected bool CheckAttack(){
+        Collider[] EnemiesInRange = Physics.OverlapSphere(meleeAttackPoint.position, meleeRange, enemyLayers);
         return (EnemiesInRange.Length != 0);
     }
 
@@ -85,16 +86,14 @@ public class Unit : MonoBehaviour
         animator.SetTrigger("Attack");
 
         //detect enemies in range of attack
-        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+        Collider[] hitEnemies = Physics.OverlapSphere(meleeAttackPoint.position, meleeRange, enemyLayers);
 
         if(hitEnemies.Length != 0){
             foreach(Collider enemy in hitEnemies){
-            Unit enemyUnit = enemy.GetComponent<Unit>();
-            enemyUnit.TakeDamage(damage);
-            Debug.Log(enemy.name + " was hit!");
-                if(enemyUnit.isDead == true){
-                    Debug.Log(enemyUnit.name + " is dead!");
-                }
+                Unit enemyUnit = enemy.GetComponent<Unit>();
+                if(enemyUnit.isDead == false && enemyUnit != null){
+                    enemyUnit.TakeDamage(damage);
+                }   
             }  
         }
         else{
@@ -102,6 +101,13 @@ public class Unit : MonoBehaviour
             animator.SetBool("isIdle", true);
         }
         
+    }
+
+     void OnTriggerEnter(Collider coll){
+        if(coll.CompareTag(enemyTag)){
+            Debug.Log(this.name + " collided with " + coll.name);
+            collidedWithEnemy = true;
+        }
     }
     public virtual void TakeDamage(int damage){
         currentHealth -= damage;
@@ -127,14 +133,10 @@ public class Unit : MonoBehaviour
         Destroy(gameObject, 5);
     }
 
-    void OnDrawGizmosSelected(){
-        if(attackPoint == null)
+    public virtual void OnDrawGizmosSelected(){
+        if(meleeAttackPoint == null)
             return;
         
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
-
-    IEnumerator wait(int seconds){
-        yield return new WaitForSeconds(seconds);
+        Gizmos.DrawWireSphere(meleeAttackPoint.position, meleeRange);
     }
 }

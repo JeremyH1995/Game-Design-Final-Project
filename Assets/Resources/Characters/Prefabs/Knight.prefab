@@ -1614,8 +1614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4168769651903859189}
-  attackPoint: {fileID: 6412184512990423876}
-  attackRange: 1
+  meleeAttackPoint: {fileID: 6412184512990423876}
+  meleeRange: 0
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64

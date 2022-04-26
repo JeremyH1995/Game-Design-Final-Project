@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Abomination : MeleeUnit
+public class Abomination : Unit
 {
     public int healAmount = 5; 
     float nextActionTime = 0.0f;

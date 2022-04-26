@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Archer : RangedUnit
 {
-    // Start is called before the first frame update
-    void Start()
+    public Arrow arrow;
+
+    public override void Shoot()
     {
-        
+        Debug.Log("Archer took a shot");
+        shootDelay = 3f;
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isIdle", false);
+        animator.SetTrigger("Shoot");
+        Instantiate(arrow, meleeAttackPoint.transform.position, Quaternion.Euler(0, 90, 0));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knight : MeleeUnit
+public class Knight : Unit
 {
   public override void TakeDamage(int damage){
         
