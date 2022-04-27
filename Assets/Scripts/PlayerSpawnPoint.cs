@@ -6,23 +6,11 @@ public class PlayerSpawnPoint : MonoBehaviour
 {
     public HQ hq;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider coll){
         //GameObject obj = coll.gameObject;
         if(coll.CompareTag("EnemyUnit")){
             hq.loseLife();
-            Destroy(coll);
+            Destroy(coll.gameObject);
         }
     }
 }

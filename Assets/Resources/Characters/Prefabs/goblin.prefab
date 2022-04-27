@@ -683,16 +683,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5908461903629284879}
   meleeAttackPoint: {fileID: 4246320381158892550}
-  meleeRange: 0
+  meleeRange: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
   collidedWithEnemy: 0
   currentHealth: 0
-  maxHealth: 150
-  speed: 3
-  damage: 20
+  maxHealth: 75
+  speed: 4
+  damage: 25
   enemyTag: PlayerUnit
+  ATTACK_DELAY: 1
   isDead: 0
   healthBar: {fileID: 6483344221996410960}
 --- !u!65 &4139718837321939714

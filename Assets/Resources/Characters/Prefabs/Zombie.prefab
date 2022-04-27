@@ -1386,10 +1386,11 @@ MonoBehaviour:
     m_Bits: 128
   collidedWithEnemy: 0
   currentHealth: 0
-  maxHealth: 100
+  maxHealth: 200
   speed: 1
   damage: 40
   enemyTag: PlayerUnit
+  ATTACK_DELAY: 4
   isDead: 0
   healthBar: {fileID: 4731311476443120346}
 --- !u!95 &7380924718860077293

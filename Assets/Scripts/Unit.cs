@@ -15,16 +15,18 @@ public class Unit : MonoBehaviour
     public float speed;
     public int damage;
     public string enemyTag;
-    protected float attackDelay;
+    public float ATTACK_DELAY;
+    protected float attackDelayVar;
     protected float idleDelay;
     public bool isDead;
     public HealthBar healthBar;
+    
 
-    void Start(){
+    public virtual void Start(){
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        attackDelay = 0;
         idleDelay = 0;
+        attackDelayVar = 0;
+        healthBar.SetMaxHealth(maxHealth);
         isDead = false;
         animator.SetBool("isIdle", true);
     }
@@ -38,8 +40,8 @@ public class Unit : MonoBehaviour
             //do nothing until deletion
         }
         else if(collidedWithEnemy == true){
-            attackDelay -= Time.deltaTime;
-            if(attackDelay <= 0){
+            attackDelayVar -= Time.deltaTime;
+            if(attackDelayVar <= 0){
                 if(CheckAttack()){
                     Attack();
                 }
@@ -76,8 +78,8 @@ public class Unit : MonoBehaviour
         return (EnemiesInRange.Length != 0);
     }
 
-    public void Attack(){
-        attackDelay = 3f;
+    public virtual void Attack(){
+        attackDelayVar = ATTACK_DELAY;
 
         animator.SetBool("isWalking", false);
         animator.SetBool("isIdle", false);
@@ -91,9 +93,11 @@ public class Unit : MonoBehaviour
         if(hitEnemies.Length != 0){
             foreach(Collider enemy in hitEnemies){
                 Unit enemyUnit = enemy.GetComponent<Unit>();
-                if(enemyUnit.isDead == false && enemyUnit != null){
-                    enemyUnit.TakeDamage(damage);
-                }   
+                if(enemyUnit != null){
+                    if(enemyUnit.isDead == false){
+                        enemyUnit.TakeDamage(damage);
+                    }
+                }
             }  
         }
         else{

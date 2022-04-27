@@ -84,7 +84,7 @@ public class EnemyHQ : MonoBehaviour
 
     void spawnZombie()
     {
-        if(goldMine.getGold() > zombiePrice){
+        if(goldMine.getGold() >= zombiePrice){
             goldMine.buyUnit(zombiePrice);
             GameObject zombie = Instantiate<GameObject>(zombiePrefab, spawnPos, rotation);
         }
@@ -92,7 +92,7 @@ public class EnemyHQ : MonoBehaviour
     }
 
     void spawnAbomination(){
-        if(goldMine.getGold() > abominationPrice){
+        if(goldMine.getGold() >= abominationPrice){
             goldMine.buyUnit(abominationPrice);
             GameObject abomination = Instantiate<GameObject>(abominationPrefab, spawnPos, rotation);
         }
@@ -100,7 +100,7 @@ public class EnemyHQ : MonoBehaviour
     }
 
     void spawnGoblin(){
-        if(goldMine.getGold() > goblinPrice){
+        if(goldMine.getGold() >= goblinPrice){
             goldMine.buyUnit(goblinPrice);
             GameObject goblin = Instantiate<GameObject>(goblinPrefab, spawnPos, rotation);
         }

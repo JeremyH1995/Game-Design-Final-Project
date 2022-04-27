@@ -6,15 +6,21 @@ public class RangedUnit : Unit
 {
     public bool rangeCollidedWithEnemy;
     public float shootDelay;
-    public Transform RangeBox;
+
+    public RangeArea rangeBox;
+
+    public override void Start(){
+        shootDelay = 0;
+        base.Start();
+    }
    
     public override void stateChange(){
         if(isDead == true){
             //do nothing until deletion
         }
         else if(collidedWithEnemy == true){
-            attackDelay -= Time.deltaTime;
-            if(attackDelay <= 0){
+            attackDelayVar -= Time.deltaTime;
+            if(attackDelayVar <= 0){
                 if(CheckAttack()){
                     Attack();
                 }
@@ -52,18 +58,20 @@ public class RangedUnit : Unit
        //shoot enemy
     }
 
-    public bool CheckRange(){
-        Collider[] EnemiesInRange = Physics.OverlapBox(RangeBox.position, RangeBox.localScale);
+    public virtual bool CheckRange(){
+        Collider[] EnemiesInRange = Physics.OverlapBox(rangeBox.transform.position, new Vector3(35, 2, 2), Quaternion.identity, enemyLayers);
         return(EnemiesInRange.Length != 0);
     }
 
     public override void OnDrawGizmosSelected(){
         if(meleeAttackPoint == null)
             return;
-        if(RangeBox == null)
+        if(rangeBox == null)
             return;
         
         Gizmos.DrawWireSphere(meleeAttackPoint.position, meleeRange);
-        Gizmos.DrawWireCube(RangeBox.position, RangeBox.localScale);
+        Gizmos.DrawWireCube(rangeBox.transform.position, new Vector3(35, 2, 2));
     }
+
+    
 }

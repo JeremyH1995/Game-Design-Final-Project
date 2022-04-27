@@ -56,7 +56,7 @@ public class HQ : MonoBehaviour
 
     void spawnKnight()
     {
-        if(goldMine.getGold() > knightPrice){
+        if(goldMine.getGold() >= knightPrice){
             goldMine.buyUnit(knightPrice);
             GameObject knight = Instantiate<GameObject>(knightPrefab, spawnPos, rotation);
         }
@@ -64,7 +64,7 @@ public class HQ : MonoBehaviour
 
     void spawnArcher()
     {
-        if(goldMine.getGold() > archerPrice){
+        if(goldMine.getGold() >= archerPrice){
             goldMine.buyUnit(archerPrice);
             GameObject knight = Instantiate<GameObject>(archerPrefab, spawnPos, rotation);
         }
@@ -72,7 +72,7 @@ public class HQ : MonoBehaviour
 
     void spawnWizard()
     {
-        if(goldMine.getGold() > wizardPrice){
+        if(goldMine.getGold() >= wizardPrice){
             goldMine.buyUnit(wizardPrice);
             GameObject knight = Instantiate<GameObject>(WizardPrefab, spawnPos, rotation);
         }
