@@ -9,13 +9,11 @@ public class Abomination : Unit
     float period = 1f;
     //Abomination heals when not in combat
     void Update(){
-        stateChange();
+        base.stateChange();
         if(Time.time > nextActionTime){
             nextActionTime = Time.time + period;
-            if(collidedWithEnemy == false){
-                if(currentHealth < maxHealth){
-                    Heal(healAmount);
-                }
+            if(currentHealth < maxHealth){
+                Heal(healAmount);
             }
         }
     }

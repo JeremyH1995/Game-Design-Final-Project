@@ -1705,7 +1705,7 @@ MonoBehaviour:
   speed: 2
   damage: 30
   enemyTag: EnemyUnit
-  ATTACK_DELAY: 3
+  ATTACK_DELAY: 2
   isDead: 0
   healthBar: {fileID: 3453323401452062032}
   blockSound: {fileID: 1333801673}

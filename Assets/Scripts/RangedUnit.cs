@@ -6,8 +6,7 @@ public class RangedUnit : Unit
 {
     public bool rangeCollidedWithEnemy;
     public float shootDelay;
-
-    public RangeArea rangeBox;
+    public Collider rangeBox;
 
     public override void Start(){
         shootDelay = 0;
@@ -59,18 +58,18 @@ public class RangedUnit : Unit
     }
 
     public virtual bool CheckRange(){
-        Collider[] EnemiesInRange = Physics.OverlapBox(rangeBox.transform.position, new Vector3(35, 2, 2), Quaternion.identity, enemyLayers);
+        Collider[] EnemiesInRange = Physics.OverlapBox(rangeBox.transform.position, rangeBox.bounds.size, Quaternion.identity, enemyLayers);
         return(EnemiesInRange.Length != 0);
     }
 
-    public override void OnDrawGizmosSelected(){
+     public override void OnDrawGizmosSelected(){
         if(meleeAttackPoint == null)
             return;
         if(rangeBox == null)
             return;
         
         Gizmos.DrawWireSphere(meleeAttackPoint.position, meleeRange);
-        Gizmos.DrawWireCube(rangeBox.transform.position, new Vector3(35, 2, 2));
+        Gizmos.DrawWireCube(rangeBox.transform.position, rangeBox.bounds.size);
     }
 
     

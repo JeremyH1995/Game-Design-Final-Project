@@ -19,7 +19,7 @@ public class Wizard : RangedUnit
             attackDelayVar -= Time.deltaTime;
             if(attackDelayVar <= 0){
                 if(CheckAttack()){
-                    Attack();
+                   Attack();
                 }
                 else{
                     collidedWithEnemy = false;
@@ -66,18 +66,10 @@ public class Wizard : RangedUnit
     }
 
     public override bool CheckRange(){
-        Collider[] EnemiesInRange = Physics.OverlapBox(rangeBox.transform.position, new Vector3(30, 2, 2), Quaternion.identity, enemyLayers);
+        Collider[] EnemiesInRange = Physics.OverlapBox(rangeBox.transform.position, rangeBox.bounds.extents, Quaternion.identity, enemyLayers);
         Debug.Log("EnemiesInRange.Length = " + EnemiesInRange.Length);
         return(EnemiesInRange.Length != 0);
     }
 
-    public override void OnDrawGizmosSelected(){
-        if(meleeAttackPoint == null)
-            return;
-        if(rangeBox == null)
-            return;
-        
-        Gizmos.DrawWireSphere(meleeAttackPoint.position, meleeRange);
-        Gizmos.DrawWireCube(rangeBox.transform.position, new Vector3(30, 2, 2));
-    }
+   
 }

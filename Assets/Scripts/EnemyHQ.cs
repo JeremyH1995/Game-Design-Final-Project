@@ -18,9 +18,9 @@ public class EnemyHQ : MonoBehaviour
     public EnemyGoldMine goldMine;
 
     //Unit Prices
-    int zombiePrice = 30;
-    int goblinPrice = 25;
-    int abominationPrice = 60;
+    int zombiePrice = 40;
+    int goblinPrice = 20;
+    int abominationPrice = 75;
 
     //HQ Properties
     public int lives = 10;

@@ -10,7 +10,7 @@ public class Unit : MonoBehaviour
     public float meleeRange;
     public LayerMask enemyLayers;
     public bool collidedWithEnemy;
-    public int currentHealth;
+    protected int currentHealth;
     public int maxHealth;
     public float speed;
     public int damage;

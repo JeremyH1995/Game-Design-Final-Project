@@ -266,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139910206405495151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.98, z: 0.95}
+  m_LocalPosition: {x: 0, y: 0.98, z: 1.108}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1192534640294657328}
@@ -597,8 +597,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.8760532, z: 1.3625302}
-  m_Center: {x: 1.8712906e-15, y: 0.9198553, z: 0.2688705}
+  m_Size: {x: 1, y: 1.8760532, z: 1.1854938}
+  m_Center: {x: 4.4625253e-16, y: 0.9198553, z: 0.18035252}
 --- !u!114 &1973668858152038305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,10 +618,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   collidedWithEnemy: 0
-  currentHealth: 0
-  maxHealth: 250
+  maxHealth: 500
   speed: 2
-  damage: 50
+  damage: 60
   enemyTag: PlayerUnit
   ATTACK_DELAY: 3
   isDead: 0

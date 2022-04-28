@@ -195,7 +195,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   collidedWithEnemy: 0
-  currentHealth: 0
   maxHealth: 50
   speed: 1
   damage: 10
@@ -205,7 +204,7 @@ MonoBehaviour:
   healthBar: {fileID: 5850785212132378680}
   rangeCollidedWithEnemy: 0
   shootDelay: 5
-  rangeBox: {fileID: 4897542766793162955}
+  rangeBox: {fileID: 5723965577332092156}
   fireball: {fileID: 7513517726269436579, guid: de11ad9a4383fed45b12a151f8ea5407, type: 3}
 --- !u!95 &6924425081742968361
 Animator:
@@ -237,8 +236,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.9133079, z: 2.023791}
-  m_Center: {x: 1.5021714e-15, y: 0.9191226, z: 0.6057058}
+  m_Size: {x: 1, y: 1.9133079, z: 1.2548941}
+  m_Center: {x: -4.0845644e-16, y: 0.9191226, z: 0.22125737}
 --- !u!1 &742382213485623317
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,9 +281,8 @@ GameObject:
   - component: {fileID: 1021866882039414763}
   - component: {fileID: 610963513930219249}
   - component: {fileID: 5723965577332092156}
-  - component: {fileID: 4897542766793162955}
   - component: {fileID: 415297898729829877}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: magicRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,8 +297,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991318925964287723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.26, z: 10.393}
-  m_LocalScale: {x: 1, y: 1, z: 17.483278}
+  m_LocalPosition: {x: 0, y: 1.26, z: 7.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 610515299847256030}
   m_RootOrder: 3
@@ -365,21 +363,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000005, y: 1, z: 0.8552652}
-  m_Center: {x: -0.0000004768372, y: 0, z: -0.0022370734}
---- !u!114 &4897542766793162955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991318925964287723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462546ed8e92a4049b74aec208fae317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unit: {fileID: 0}
+  m_Size: {x: 1.0000005, y: 1, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &415297898729829877
 MonoBehaviour:
   m_ObjectHideFlags: 0

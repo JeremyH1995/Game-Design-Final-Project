@@ -14,7 +14,6 @@ public class RangeArea : MonoBehaviour
        if(coll.CompareTag("EnemyUnit")){
             Debug.Log(this.name + " collided with " + coll.name);
             unit.rangeCollidedWithEnemy = true;
-            
         }
    }
 
