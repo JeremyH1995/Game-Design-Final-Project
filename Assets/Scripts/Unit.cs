@@ -20,6 +20,7 @@ public class Unit : MonoBehaviour
     protected float idleDelay;
     public bool isDead;
     public HealthBar healthBar;
+    public int cost;
     
 
     public virtual void Start(){

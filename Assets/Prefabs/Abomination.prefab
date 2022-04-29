@@ -619,12 +619,13 @@ MonoBehaviour:
     m_Bits: 128
   collidedWithEnemy: 0
   maxHealth: 500
-  speed: 2
+  speed: 3
   damage: 60
   enemyTag: PlayerUnit
   ATTACK_DELAY: 3
   isDead: 0
   healthBar: {fileID: 1872060004002770278}
+  cost: 60
   healAmount: 3
 --- !u!54 &-8795638126571894794
 Rigidbody:

@@ -17,14 +17,15 @@ public class EnemyHQ : MonoBehaviour
     public GameObject abominationPrefab;
     public EnemyGoldMine goldMine;
 
-    //Unit Prices
-    int zombiePrice = 40;
-    int goblinPrice = 20;
-    int abominationPrice = 75;
-
     //HQ Properties
     public int lives = 10;
     public Text livesText;
+
+    //Units
+    Zombie zombieUnit;
+    Goblin goblinUnit;
+    Abomination abominationUnit;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,11 @@ public class EnemyHQ : MonoBehaviour
         
         //call RollForUnit reapeatedly
         InvokeRepeating("Decide", 5, 5);
+
+        //get units
+        zombieUnit = zombiePrefab.GetComponent<Zombie>();
+        goblinUnit = goblinPrefab.GetComponent<Goblin>();
+        abominationUnit = abominationPrefab.GetComponent<Abomination>();
     }
 
     public void loseLife(){
@@ -48,31 +54,34 @@ public class EnemyHQ : MonoBehaviour
         int value = RollForUnit();
         switch(value){
             case 0: 
+            case 1:
                 spawnZombie();
                 break;
-            case 1: 
+            case 2:
+            case 3: 
                 spawnGoblin();
                 break;
-            case 2: 
+            case 4:
+            case 5: 
                 spawnAbomination();
                 break;
-            case 3: 
+            case 6:
+            case 7:
+            case 8:
+            case 9: 
                 goldMine.upgrade();
-                break;
-            case 4:
-                //do nothing
                 break;
         }
     }
     
     int RollForUnit(){
         /*random number sheet 
-        0 - Zombie
-        1 - Goblin
-        2 - Abomination
-        3 - upgrade Goldmine
+        0 - 1: Zombie
+        2 - 3: Goblin
+        4 - 5: Abomination
+         >= 6: upgrade Goldmine
         */
-        int rand = Random.Range(0, 4);
+        int rand = Random.Range(0, 9);
         Debug.Log("Enemy HQ Roll Value:\t" + rand);
         return rand;
     }
@@ -84,24 +93,24 @@ public class EnemyHQ : MonoBehaviour
 
     void spawnZombie()
     {
-        if(goldMine.getGold() >= zombiePrice){
-            goldMine.buyUnit(zombiePrice);
+        if(goldMine.getGold() >= zombieUnit.cost){
+            goldMine.buyUnit(zombieUnit.cost);
             GameObject zombie = Instantiate<GameObject>(zombiePrefab, spawnPos, rotation);
         }
             
     }
 
     void spawnAbomination(){
-        if(goldMine.getGold() >= abominationPrice){
-            goldMine.buyUnit(abominationPrice);
+        if(goldMine.getGold() >= abominationUnit.cost){
+            goldMine.buyUnit(abominationUnit.cost);
             GameObject abomination = Instantiate<GameObject>(abominationPrefab, spawnPos, rotation);
         }
             
     }
 
     void spawnGoblin(){
-        if(goldMine.getGold() >= goblinPrice){
-            goldMine.buyUnit(goblinPrice);
+        if(goldMine.getGold() >= goblinUnit.cost){
+            goldMine.buyUnit(goblinUnit.cost);
             GameObject goblin = Instantiate<GameObject>(goblinPrefab, spawnPos, rotation);
         }
     }

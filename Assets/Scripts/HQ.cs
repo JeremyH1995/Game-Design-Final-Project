@@ -19,15 +19,17 @@ public class HQ : MonoBehaviour
     public GoldMine goldMine;
     public GameObject knightPrefab;
     public GameObject archerPrefab;
-    public GameObject WizardPrefab;
+    public GameObject wizardPrefab;
 
-    //Unit Prices
-    int knightPrice = 40;
-    int archerPrice = 60;
-    int wizardPrice = 100;
     //HQ Properties
     public int lives = 10;
     public Text livesText;
+
+    //Units
+    Knight knightUnit;
+    Archer archerUnit;
+    Wizard wizardUnit;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,10 @@ public class HQ : MonoBehaviour
         btnKnight.onClick.AddListener(spawnKnight);
         btnArcher.onClick.AddListener(spawnArcher);
         btnWizard.onClick.AddListener(spawnWizard);
+        //get units
+        knightUnit = knightPrefab.GetComponent<Knight>();
+        archerUnit = archerPrefab.GetComponent<Archer>();
+        wizardUnit = wizardPrefab.GetComponent<Wizard>();
     }
 
     public void loseLife(){
@@ -56,25 +62,25 @@ public class HQ : MonoBehaviour
 
     void spawnKnight()
     {
-        if(goldMine.getGold() >= knightPrice){
-            goldMine.buyUnit(knightPrice);
+        if(goldMine.getGold() >= knightUnit.cost){
+            goldMine.buyUnit(knightUnit.cost);
             GameObject knight = Instantiate<GameObject>(knightPrefab, spawnPos, rotation);
         }
     }
 
     void spawnArcher()
     {
-        if(goldMine.getGold() >= archerPrice){
-            goldMine.buyUnit(archerPrice);
+        if(goldMine.getGold() >= archerUnit.cost){
+            goldMine.buyUnit(archerUnit.cost);
             GameObject knight = Instantiate<GameObject>(archerPrefab, spawnPos, rotation);
         }
     }
 
     void spawnWizard()
     {
-        if(goldMine.getGold() >= wizardPrice){
-            goldMine.buyUnit(wizardPrice);
-            GameObject knight = Instantiate<GameObject>(WizardPrefab, spawnPos, rotation);
+        if(goldMine.getGold() >= wizardUnit.cost){
+            goldMine.buyUnit(wizardUnit.cost);
+            GameObject knight = Instantiate<GameObject>(wizardPrefab, spawnPos, rotation);
         }
     }
 }

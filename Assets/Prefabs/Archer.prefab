@@ -511,11 +511,12 @@ MonoBehaviour:
   collidedWithEnemy: 0
   maxHealth: 100
   speed: 2
-  damage: 15
+  damage: 20
   enemyTag: EnemyUnit
   ATTACK_DELAY: 2
   isDead: 0
   healthBar: {fileID: 8323395850376643534}
+  cost: 75
   rangeCollidedWithEnemy: 0
   shootDelay: 3
   rangeBox: {fileID: 2693547221743368352}

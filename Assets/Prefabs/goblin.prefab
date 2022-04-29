@@ -688,13 +688,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   collidedWithEnemy: 0
-  maxHealth: 75
+  maxHealth: 100
   speed: 4
   damage: 15
   enemyTag: PlayerUnit
   ATTACK_DELAY: 1
   isDead: 0
   healthBar: {fileID: 6483344221996410960}
+  cost: 20
 --- !u!65 &4139718837321939714
 BoxCollider:
   m_ObjectHideFlags: 0

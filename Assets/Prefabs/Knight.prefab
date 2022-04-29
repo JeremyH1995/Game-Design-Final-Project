@@ -1700,7 +1700,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   collidedWithEnemy: 0
-  currentHealth: 0
   maxHealth: 200
   speed: 2
   damage: 30
@@ -1708,6 +1707,7 @@ MonoBehaviour:
   ATTACK_DELAY: 2
   isDead: 0
   healthBar: {fileID: 3453323401452062032}
+  cost: 50
   blockSound: {fileID: 1333801673}
   blockText: {fileID: 1490759443}
 --- !u!65 &6215580030553750255
@@ -1751,7 +1751,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2e071f5b8b8467d45a5e6e24c23c6ad4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
