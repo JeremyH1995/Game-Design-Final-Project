@@ -33,7 +33,7 @@ public class Fireball : MonoBehaviour
                     }   
                 }  
             }
-            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponentInChildren<Renderer>().enabled = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
             Destroy(gameObject, 2f);
         }

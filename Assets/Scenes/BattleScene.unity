@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 610515299847256030, guid: a92ad84aec2747346ac9802838852b94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.88516
+      value: -9.43
       objectReference: {fileID: 0}
     - target: {fileID: 610515299847256030, guid: a92ad84aec2747346ac9802838852b94, type: 3}
       propertyPath: m_LocalPosition.y
@@ -309,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 610515299847256030, guid: a92ad84aec2747346ac9802838852b94, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 610515299847256030, guid: a92ad84aec2747346ac9802838852b94, type: 3}
       propertyPath: m_LocalRotation.w
@@ -344,6 +344,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3890466392022396983, guid: a92ad84aec2747346ac9802838852b94, type: 3}
+      propertyPath: fireball
+      value: 
+      objectReference: {fileID: 1842128072220834332, guid: b4b5ad626013bb444983b15bde6e8ca0, type: 3}
+    - target: {fileID: 3890466392022396983, guid: a92ad84aec2747346ac9802838852b94, type: 3}
       propertyPath: particle
       value: 
       objectReference: {fileID: 0}
@@ -353,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3890466392022396983, guid: a92ad84aec2747346ac9802838852b94, type: 3}
       propertyPath: ATTACK_DELAY
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4843794263147482863, guid: a92ad84aec2747346ac9802838852b94, type: 3}
       propertyPath: m_AnchorMax.x

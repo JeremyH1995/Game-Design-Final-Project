@@ -40,7 +40,11 @@ public class GoldMine : MonoBehaviour
             level++;
             upgradeCost += 25;
             levelTextBox.text = "Level " + level.ToString();
-            upgradeButtonText.text = "Upgrade Cost: " + upgradeCost.ToString();
+             upgradeButtonText.text = "Upgrade Cost: " + upgradeCost.ToString();
+            if(level == MAX_LEVEL){
+                upgradeButtonText.text = "Max Level";
+                btnUpgrade.interactable = false;
+            }
         }
     }
 }
