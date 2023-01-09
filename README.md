@@ -1,4 +1,4 @@
-# cs382FinalProject
+# Game Design FinalProject
 Final Project for Game Design
 
 Members:
